@@ -1,8 +1,20 @@
 .myNav {
     margin: 10px;
-    background-image: url(/img/metal_014.jpg);
+    border: 1.2px solid black;
+}
+
+.navbar {
+    display: block;
+    position: relative;
+    background-image: url(../img/Navbar\ BG\ Dropped\ Opacity.jpg);
+}
+
+a {
+    color: black;
 }
 
 body {
     color: black;
+    background-image: url(../img/Wiki-background.jpg);
 }
+

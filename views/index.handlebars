@@ -1,23 +1,19 @@
 <div class="container">
     <Nav class="myNav">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">Business Insider Scrape</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link m-2" href="#">Home <span class="sr-only">(current)</span></a>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link m-2" href="#">Articles</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item active">
                         <a class="btn btn-primary btn-sm m-2">Scrape Articles!</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="btn btn-primary btn-sm m-2">Clear Articles!</a>
                     </li>
                 </ul>
@@ -26,6 +22,5 @@
     </Nav>
 </div>
 
-<body>
-    <h1>Lets start on this thing as soon as I can get the image to work</h1>
-</body>
+<div id="articles"></div>
+<div id="notes"></div>

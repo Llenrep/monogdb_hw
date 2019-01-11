@@ -42,8 +42,8 @@ axios.get("https://www.businessinsider.com/most-biased-news-outlets-in-america-c
   // but be sure to visit the package's npm page to see how it works
   $(".slide-wrapper").each(function (i, element) {
 
-    var title = $(".slide-title").children().text().replace(/\r?\n|\r/g, " ").trim();
-    var texts = $(".slide-title").children().text();
+    var title = $(".slide-title").children().text().replace(/\r?\n|\r/g, "").trim();
+    var texts = $("p").children().text(); //this is grabbing the ptag at the end of the slide wrapper. i want whats inside the wrapper.
 
     // Save these results in an object that we'll push into the results array we defined earlier
     results.push({

@@ -13,8 +13,80 @@ a {
     color: black;
 }
 
+.introduction {
+    font-family: cursive;
+    font-size: 10px;
+}
+
 body {
     color: black;
     background-image: url(../img/Wiki-background.jpg);
 }
+
+.footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    opacity: 0.5;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+#articles {
+    display: inline-block;
+    overflow: auto;
+    width: 60%;
+    height: 700px;
+  }
+  #notes {
+    float: right;
+    width: 30%;
+  }
+  textarea, input {
+    display: block;
+    width: 100%;
+    background-color: #FCF5C7;
+  }
+  input {
+    height: 36px;
+    font-size: 24px;
+  }
+  textarea {
+    height: 200px;
+    font-size: 18px;
+  }
+
+@-webkit-keyframes
+  fadein {
+    0% { opacity: 0;
+    };
+  
+    100% { opacity: 1;
+    };
+  }
+  
+  @-moz-keyframes fadein
+  {
+    0% { opacity: 0;
+    
+    }
+    100% {opacity: 1;
+    }
+  }
+  
+  @keyframes fadein {
+    0% { opacity: 0;
+    };
+  
+    100% { opacity: 1;
+    };
+  }
+  
+  .introduction{
+    -webkit-animation: fadein 1.2s ease-in alternate infinite;
+    -moz-animation: fadein 1.2s ease-in alternate infinite;
+    animation: fadein 1.2s ease-in alternate infinite;
+  }
 

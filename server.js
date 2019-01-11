@@ -8,13 +8,18 @@ var handlebars = require("express-handlebars");
 //requiring handlebarsssss
 var path = require("path");
 //requiring path
-var mongoose = require("mongoose")
+var mongoose = require("mongoose");
+//requiring mongooose
 
 var PORT = 8080 || process.env.PORT;
 
 // var MONGODB_URI =
 //   process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 // mongoose.connect(MONGODB_URI);
+
+mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+
+var db = require("./models");
 
 var app = express();
 
@@ -44,11 +49,13 @@ axios.get("https://www.businessinsider.com/most-biased-news-outlets-in-america-c
 
     var title = $(".slide-title").children().text().replace(/\r?\n|\r/g, "").trim();
     var texts = $("p").children().text(); //this is grabbing the ptag at the end of the slide wrapper. i want whats inside the wrapper.
+    var link;
 
     // Save these results in an object that we'll push into the results array we defined earlier
     results.push({
       title: title,
-      link: texts
+      info: texts,
+      link: link
     });
   });
 

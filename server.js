@@ -17,7 +17,7 @@ var PORT = 8080 || process.env.PORT;
 //   process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 // mongoose.connect(MONGODB_URI);
 
-mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
 
 var db = require("./models");
 
@@ -45,10 +45,10 @@ axios.get("https://www.businessinsider.com/most-biased-news-outlets-in-america-c
   // Select each element in the HTML body from which you want information.
   // NOTE: Cheerio selectors function similarly to jQuery's selectors,
   // but be sure to visit the package's npm page to see how it works
-  $(".slide-wrapper").each(function (i, element) {
+  $(".slideshow-slide-container").each(function (i, element) { //next, try slide-wrapper or slideshow-slide-container
 
-    var title = $(".slide-title").children().text().replace(/\r?\n|\r/g, "").trim();
-    var texts = $("p").children().text(); //this is grabbing the ptag at the end of the slide wrapper. i want whats inside the wrapper.
+    var title = $(".slide-wrapper", ".slide-title").children().text().replace(/\r?\n|\r/g, "").trim();
+    var texts = $(".slide-wrapper", "p").children().text().trim(); //this is grabbing the ptag at the end of the slide wrapper. i want whats inside the wrapper.
     var link;
 
     // Save these results in an object that we'll push into the results array we defined earlier

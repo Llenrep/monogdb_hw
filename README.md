@@ -9,7 +9,7 @@ This app will grab data from a website with a blog/article layout, and add all t
 1. HTML
 2. Node.js
 3. JQuery
-4. npm installs
+*4. npm installs
   1. mongoose
   2. cheerios
   3. express

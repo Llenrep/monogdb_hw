@@ -43,7 +43,7 @@ axios.get("https://www.reddit.com/r/trapproduction/").then(function (response) {
   // Select each element in the HTML body from which you want information.
   // NOTE: Cheerio selectors function similarly to jQuery's selectors,
   // but be sure to visit the package's npm page to see how it works
-  $("._1poyrkZ7g36PawDueRza-J span").each(function (i, element) { //s18m1py3-0 MKzsd rpBJOHq2PR60pnwJlUyP0
+  $("._3wiKjmhpIpoTE2r5KCm2o6 span").each(function (i, element) { //s18m1py3-0 MKzsd rpBJOHq2PR60pnwJlUyP0
     // console.log(element); //.replace(/\r?\n|\r/g, "")
 
     var title = $(this).find('h2').text()//.replace(/\s\s+/g, '');

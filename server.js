@@ -13,11 +13,9 @@ var mongoose = require("mongoose");
 
 var PORT = 8080 || process.env.PORT;
 
-// var MONGODB_URI =
-//   process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-// mongoose.connect(MONGODB_URI);
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-// mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI);
 
 var db = require("./models");
 
@@ -33,7 +31,7 @@ app.get("/", function (req, res) {
   res.render("index.handlebars");
 });
 
-axios.get("https://www.businessinsider.com/most-biased-news-outlets-in-america-cnn-fox-nytimes-2018-8#5-cnn-27-5").then(function (response) {
+axios.get("https://www.reddit.com/r/trapproduction/").then(function (response) {
 
   // Load the HTML into cheerio and save it to a variable
   // '$' becomes a shorthand for cheerio's selector commands, much like jQuery's '$'
@@ -45,22 +43,28 @@ axios.get("https://www.businessinsider.com/most-biased-news-outlets-in-america-c
   // Select each element in the HTML body from which you want information.
   // NOTE: Cheerio selectors function similarly to jQuery's selectors,
   // but be sure to visit the package's npm page to see how it works
-  $(".slideshow-slide-container").each(function (i, element) { //next, try slide-wrapper or slideshow-slide-container
+  $("._1poyrkZ7g36PawDueRza-J span").each(function (i, element) { //s18m1py3-0 MKzsd rpBJOHq2PR60pnwJlUyP0
+    // console.log(element); //.replace(/\r?\n|\r/g, "")
 
-    var title = $(".slide-wrapper", ".slide-title").children().text().replace(/\r?\n|\r/g, "").trim();
-    var texts = $(".slide-wrapper", "p").children().text().trim(); //this is grabbing the ptag at the end of the slide wrapper. i want whats inside the wrapper.
-    var link;
+    var title = $(this).find('h2').text()//.replace(/\s\s+/g, '');
 
+    var link = $(this).find('.SQnoC3ObvgnGjWt90zD9Z').attr("href");
+    //SQnoC3ObvgnGjWt90zD9Z
     // Save these results in an object that we'll push into the results array we defined earlier
     results.push({
       title: title,
-      info: texts,
+      // info: texts,
       link: link
     });
   });
 
   // Log the results once you've looped through each of the elements found with cheerio
   console.log(results);
+
+}).catch(function (err) {
+  if (err) {
+    return err
+  }
 });
 
 var server = app.listen(PORT, function () {

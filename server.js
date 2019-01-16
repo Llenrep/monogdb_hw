@@ -11,9 +11,11 @@ var path = require("path");
 var mongoose = require("mongoose");
 //requiring mongooose
 
+var routes = require("./routes");
+
 var PORT = 8080 || process.env.PORT;
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoheadline";
 
 mongoose.connect(MONGODB_URI);
 
@@ -27,9 +29,9 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.engine("handlebars", handlebars({ defaultLayout: "main" }));
 
-app.get("/", function (req, res) {
-  res.render("index.handlebars");
-});
+app.set("view engine", "handlebars");
+
+app.use(routes);
 
 axios.get("https://www.reddit.com/r/trapproduction/").then(function (response) {
 
